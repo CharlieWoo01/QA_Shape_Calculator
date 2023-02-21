@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculate Shapes</title>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="stylesheet.css">
+  </head>
+  <body>
+    <div class="calculator-content">
+      <form>
+        <select id="shape-type" onchange="showShapeInputs()" onclick="hideCalculatorResult()">
+          <option value="0" disabled selected>Please select an option:</option>
+          <option value="shape1">Circle</option>
+          <option value="shape2">Rectangle</option>
+          <option value="shape3">Triangle</option>
+        </select>
+
+        <input
+          id="rectangle-width"
+          type="number"
+          min="0"
+          class="rectangle-input"
+          placeholder="Width"
+          onclick="hideCalculatorResult()"
+        />
+        <input
+          id="rectangle-length"
+          type="number"
+          min="0"
+          class="rectangle-input"
+          placeholder="Length"
+          onclick="hideCalculatorResult()"
+        />
+
+        <input
+          id="circle-radius"
+          type="number"
+          min="0"
+          class="circle-input"
+          placeholder="Radius"
+          onclick="hideCalculatorResult()"
+        />
+
+        <input
+          id="triangle-a"
+          type="number"
+          min="0"
+          class="triangle-input"
+          placeholder="Side A"
+          onclick="hideCalculatorResult()"
+        />
+        <input
+          id="triangle-b"
+          type="number"
+          min="0"
+          class="triangle-input"
+          placeholder="Base"
+          onclick="hideCalculatorResult()"
+        />
+        <input
+          id="triangle-c"
+          type="number"
+          min="0"
+          class="triangle-input"
+          placeholder="Side B"
+          onclick="hideCalculatorResult()"
+        />
+        <input
+          id="triangle-height"
+          type="number"
+          min="0"
+          class="triangle-input"
+          placeholder="Height"
+          onclick="hideCalculatorResult()"
+        />
+
+        <button
+          type="button"
+          onclick="calculations()"
+          id="calculator-activation"
+        >
+          Calculate
+        </button>
+      </form>
+
+      <div class="calculation-answer">
+        <p>Perimeter: <span id="perimeter-calculation"></span></p>
+        <p>Area: <span id="area-calculation"></span></p>
+      </div>
+    </div>
+  </body>
+</html>
