@@ -81,6 +81,7 @@ const trianglePerimeter = () => {
 
 const hideCalculatorResult = () => {
   $(".calculation-answer").hide();
+  $("#error-message").hide();
 };
 
 const showCalculatorResult = () => {
