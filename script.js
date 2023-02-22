@@ -47,11 +47,7 @@ const validateRectangle = () => {
 const rectangleArea = () => {
   const width = document.getElementById("rectangle-width").value;
   const length = document.getElementById("rectangle-length").value;
-  return validateRectangle()
-    ? width * length
-    : alert(
-        "Please ensure that your number is over 0 or rectangle length and width is not equal."
-      );
+  return validateRectangle() ? width * length : 0;
 };
 
 const rectanglePerimeter = () => {
@@ -62,9 +58,7 @@ const rectanglePerimeter = () => {
 
 const circleArea = () => {
   const radius = document.getElementById("circle-radius").value;
-  return validCircleLengths()
-    ? Math.pow(radius, 2) * CIRCLE_PI
-    : alert("Please ensure that your number is over 0");
+  return validCircleLengths() ? Math.pow(radius, 2) * CIRCLE_PI : 0;
 };
 
 const circlePerimeter = () => {
@@ -75,9 +69,7 @@ const circlePerimeter = () => {
 const triangleArea = () => {
   const base = document.getElementById("triangle-b").value;
   const height = document.getElementById("triangle-height").value;
-  return validTriangleLengths()
-    ? 0.5 * base * height
-    : alert("Please ensure that your number is over 0");
+  return validTriangleLengths() ? 0.5 * base * height : 0;
 };
 
 const trianglePerimeter = () => {
@@ -127,18 +119,34 @@ const showShapeInputs = () => {
 };
 
 const calculations = () => {
-  showCalculatorResult();
   if (checkShape() && shape() === "shape1") {
-    document.getElementById("perimeter-calculation").innerHTML =
-      circlePerimeter();
-    document.getElementById("area-calculation").innerHTML = circleArea();
+    if (circlePerimeter() > 0 || circleArea() > 0) {
+      document.getElementById("perimeter-calculation").innerHTML =
+        circlePerimeter();
+      document.getElementById("area-calculation").innerHTML = circleArea();
+      showCalculatorResult();
+    } else {
+      alert("Please ensure that your numbers are over 0");
+    }
   } else if (checkShape() && shape() === "shape2") {
-    document.getElementById("perimeter-calculation").innerHTML =
-      rectanglePerimeter();
-    document.getElementById("area-calculation").innerHTML = rectangleArea();
+    if (rectanglePerimeter() > 0 || rectanglePerimeter() > 0) {
+      document.getElementById("perimeter-calculation").innerHTML =
+        rectanglePerimeter();
+      document.getElementById("area-calculation").innerHTML = rectangleArea();
+      showCalculatorResult();
+    } else {
+      alert(
+        "Please ensure that your numbers are over 0 and the lengths and widths are not equal"
+      );
+    }
   } else if (checkShape() && shape() === "shape3") {
-    document.getElementById("perimeter-calculation").innerHTML =
-      trianglePerimeter();
-    document.getElementById("area-calculation").innerHTML = triangleArea();
+    if (trianglePerimeter() > 0 || triangleArea() > 0) {
+      document.getElementById("perimeter-calculation").innerHTML =
+        trianglePerimeter();
+      document.getElementById("area-calculation").innerHTML = triangleArea();
+      showCalculatorResult();
+    } else {
+      alert("Please ensure that your numbers are over 0");
+    }
   }
 };
